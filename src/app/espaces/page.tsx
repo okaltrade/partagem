@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { Suspense, useState, useMemo, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import SpaceCard from '@/components/SpaceCard';
 import SpaceFilters from '@/components/SpaceFilters';
 import { espacesMock } from '@/lib/mock/spaces';
@@ -8,11 +9,34 @@ import type { TypeEspace } from '@/types/space';
 
 const villes = [...new Set(espacesMock.map((e) => e.ville))].sort();
 
-export default function EspacesPage() {
+/** Supprime les accents et met en minuscules pour la comparaison */
+function normaliser(str: string): string {
+  return str
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .trim();
+}
+
+/** Trouve la ville réelle (ex: "Lomé") depuis un slug URL (ex: "lome") */
+function villeDepuisSlug(slug: string): string {
+  return villes.find((v) => normaliser(v) === normaliser(slug)) ?? '';
+}
+
+function EspacesContenu() {
+  const searchParams = useSearchParams();
+
+  const villeInitiale = villeDepuisSlug(searchParams.get('ville') ?? '');
+
   const [filtre, setFiltre] = useState<TypeEspace | 'tous'>('tous');
-  const [villeFiltre, setVilleFiltre] = useState('');
+  const [villeFiltre, setVilleFiltre] = useState(villeInitiale);
   const [contributionMax, setContributionMax] = useState('');
   const [recherche, setRecherche] = useState('');
+
+  // Synchronise le filtre si le paramètre URL change (ex: retour depuis homepage)
+  useEffect(() => {
+    setVilleFiltre(villeDepuisSlug(searchParams.get('ville') ?? ''));
+  }, [searchParams]);
 
   const espacesFiltres = useMemo(() => {
     const terme = recherche.toLowerCase().trim();
@@ -20,12 +44,16 @@ export default function EspacesPage() {
 
     return espacesMock.filter((e) => {
       if (filtre !== 'tous' && e.type !== filtre) return false;
-      if (villeFiltre && e.ville !== villeFiltre) return false;
+      if (villeFiltre && normaliser(e.ville) !== normaliser(villeFiltre)) return false;
       if (max !== null && e.prix > max) return false;
       if (terme && !e.titre.toLowerCase().includes(terme) && !e.ville.toLowerCase().includes(terme)) return false;
       return true;
     });
   }, [filtre, villeFiltre, contributionMax, recherche]);
+
+  const titreH1 = villeFiltre
+    ? `Espaces disponibles à ${villeFiltre}`
+    : 'Espaces disponibles';
 
   return (
     <div>
@@ -34,7 +62,7 @@ export default function EspacesPage() {
         <div className="mx-auto max-w-6xl">
           {/* Titre + compteur */}
           <div className="mb-3 flex items-baseline justify-between">
-            <h1 className="text-xl font-bold text-gray-900 sm:text-2xl">Tous les espaces</h1>
+            <h1 className="text-xl font-bold text-gray-900 sm:text-2xl">{titreH1}</h1>
             <span className="text-sm text-gray-400">
               {espacesFiltres.length} résultat{espacesFiltres.length > 1 ? 's' : ''}
             </span>
@@ -93,5 +121,13 @@ export default function EspacesPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function EspacesPage() {
+  return (
+    <Suspense>
+      <EspacesContenu />
+    </Suspense>
   );
 }
