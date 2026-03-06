@@ -28,60 +28,70 @@ export default function EspacesPage() {
   }, [filtre, villeFiltre, contributionMax, recherche]);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-12">
-      <h1 className="text-3xl font-bold text-gray-900">Tous les espaces</h1>
-      <p className="mt-2 text-gray-500">
-        {espacesFiltres.length} espace{espacesFiltres.length > 1 ? 's' : ''} disponible
-        {espacesFiltres.length > 1 ? 's' : ''}
-      </p>
+    <div>
+      {/* En-tête + recherche + filtres — sticky sur mobile */}
+      <div className="sticky top-[57px] z-40 border-b border-gray-100 bg-white/95 px-4 pb-4 pt-4 shadow-sm backdrop-blur-sm">
+        <div className="mx-auto max-w-6xl">
+          {/* Titre + compteur */}
+          <div className="mb-3 flex items-baseline justify-between">
+            <h1 className="text-xl font-bold text-gray-900 sm:text-2xl">Tous les espaces</h1>
+            <span className="text-sm text-gray-400">
+              {espacesFiltres.length} résultat{espacesFiltres.length > 1 ? 's' : ''}
+            </span>
+          </div>
 
-      {/* Barre de recherche */}
-      <div className="mt-6">
-        <div className="relative max-w-md">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-            aria-hidden="true"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
-          </svg>
-          <input
-            type="search"
-            placeholder="Rechercher par ville ou titre..."
-            value={recherche}
-            onChange={(e) => setRecherche(e.target.value)}
-            className="w-full rounded-lg border border-gray-200 bg-white py-2.5 pl-9 pr-4 text-sm text-gray-900 placeholder-gray-400 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+          {/* Barre de recherche */}
+          <div className="relative mb-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+              aria-hidden="true"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
+            </svg>
+            <input
+              type="search"
+              placeholder="Rechercher par ville ou titre..."
+              value={recherche}
+              onChange={(e) => setRecherche(e.target.value)}
+              className="w-full rounded-xl border border-gray-200 bg-white py-2.5 pl-9 pr-4 text-sm text-gray-900 placeholder-gray-400 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-100"
+            />
+          </div>
+
+          <SpaceFilters
+            type={filtre}
+            ville={villeFiltre}
+            contributionMax={contributionMax}
+            onTypeChange={setFiltre}
+            onVilleChange={setVilleFiltre}
+            onContributionMaxChange={setContributionMax}
+            villes={villes}
           />
         </div>
       </div>
 
-      <div className="mt-4">
-        <SpaceFilters
-          type={filtre}
-          ville={villeFiltre}
-          contributionMax={contributionMax}
-          onTypeChange={setFiltre}
-          onVilleChange={setVilleFiltre}
-          onContributionMaxChange={setContributionMax}
-          villes={villes}
-        />
+      {/* Grille */}
+      <div className="mx-auto max-w-6xl px-4 py-8">
+        {espacesFiltres.length === 0 ? (
+          <div className="mt-16 flex flex-col items-center gap-3 text-center text-gray-400">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z" />
+            </svg>
+            <p className="text-lg font-medium text-gray-500">Aucun espace trouvé.</p>
+            <p className="text-sm">Essayez de modifier vos filtres.</p>
+          </div>
+        ) : (
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {espacesFiltres.map((espace) => (
+              <SpaceCard key={espace.id} espace={espace} />
+            ))}
+          </div>
+        )}
       </div>
-
-      {espacesFiltres.length === 0 ? (
-        <div className="mt-16 text-center text-gray-400">
-          <p className="text-lg">Aucun espace trouvé.</p>
-        </div>
-      ) : (
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {espacesFiltres.map((espace) => (
-            <SpaceCard key={espace.id} espace={espace} />
-          ))}
-        </div>
-      )}
     </div>
   );
 }
