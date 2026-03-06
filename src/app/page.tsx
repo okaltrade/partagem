@@ -52,6 +52,58 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Pourquoi utiliser Partagem */}
+      <section className="bg-white px-4 py-16">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="mb-10 text-center text-2xl font-bold text-gray-900">
+            Pourquoi utiliser Partagem ?
+          </h2>
+          <div className="grid gap-8 sm:grid-cols-3">
+            {/* Bloc 1 */}
+            <div className="flex flex-col items-center rounded-xl border border-gray-100 bg-slate-50 p-8 text-center shadow-sm">
+              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 9.75L12 3l9 6.75V21a.75.75 0 01-.75.75H15v-6H9v6H3.75A.75.75 0 013 21V9.75z" />
+                </svg>
+              </div>
+              <h3 className="mb-2 font-semibold text-gray-900">Publier un espace</h3>
+              <p className="text-sm text-gray-500">
+                Proposez gratuitement une chambre, bureau ou espace inutilisé et trouvez rapidement
+                des personnes intéressées.
+              </p>
+            </div>
+
+            {/* Bloc 2 */}
+            <div className="flex flex-col items-center rounded-xl border border-gray-100 bg-slate-50 p-8 text-center shadow-sm">
+              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z" />
+                </svg>
+              </div>
+              <h3 className="mb-2 font-semibold text-gray-900">Trouver un espace</h3>
+              <p className="text-sm text-gray-500">
+                Découvrez des espaces à partager dans votre ville : chambres, studios, bureaux ou
+                espaces commerciaux.
+              </p>
+            </div>
+
+            {/* Bloc 3 */}
+            <div className="flex flex-col items-center rounded-xl border border-gray-100 bg-slate-50 p-8 text-center shadow-sm">
+              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.77 9.77 0 01-4-.84L3 20l1.09-3.27C3.4 15.53 3 13.82 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+              </div>
+              <h3 className="mb-2 font-semibold text-gray-900">Contact direct</h3>
+              <p className="text-sm text-gray-500">
+                Discutez directement avec le propriétaire via WhatsApp pour poser vos questions et
+                organiser une visite.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Espaces vedettes */}
       <section className="mx-auto max-w-6xl px-4 py-16">
         <div className="mb-8 flex items-center justify-between">
@@ -68,6 +120,36 @@ export default function Home() {
           {espacesVedettes.map((espace) => (
             <SpaceCard key={espace.id} espace={espace} />
           ))}
+        </div>
+      </section>
+
+      {/* Villes populaires */}
+      <section className="bg-slate-50 px-4 py-16">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="mb-10 text-center text-2xl font-bold text-gray-900">Villes populaires</h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { nom: 'Lomé', pays: 'Togo', slug: 'lome' },
+              { nom: 'Cotonou', pays: 'Bénin', slug: 'cotonou' },
+              { nom: 'Abidjan', pays: "Côte d'Ivoire", slug: 'abidjan' },
+              { nom: 'Dakar', pays: 'Sénégal', slug: 'dakar' },
+            ].map((ville) => (
+              <Link
+                key={ville.slug}
+                href={`/espaces?ville=${ville.slug}`}
+                className="group flex flex-col items-center rounded-xl border border-gray-100 bg-white px-6 py-8 text-center shadow-sm transition-shadow hover:shadow-md"
+              >
+                <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100 transition-colors group-hover:bg-emerald-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <p className="font-semibold text-gray-900">{ville.nom}</p>
+                <p className="mt-1 text-xs text-gray-400">{ville.pays}</p>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
