@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5f3ff"/>
+      <stop offset="100%" style="stop-color:#ede9fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#g)"/>
+  <!-- Grande table -->
+  <rect x="100" y="200" width="600" height="120" rx="8" fill="#c4b5fd" opacity="0.6"/>
+  <!-- Chaises -->
+  <rect x="120" y="150" width="60" height="50" rx="6" fill="#a78bfa" opacity="0.7"/>
+  <rect x="230" y="150" width="60" height="50" rx="6" fill="#a78bfa" opacity="0.7"/>
+  <rect x="340" y="150" width="60" height="50" rx="6" fill="#a78bfa" opacity="0.7"/>
+  <rect x="450" y="150" width="60" height="50" rx="6" fill="#a78bfa" opacity="0.7"/>
+  <rect x="560" y="150" width="60" height="50" rx="6" fill="#a78bfa" opacity="0.7"/>
+  <rect x="120" y="320" width="60" height="50" rx="6" fill="#a78bfa" opacity="0.7"/>
+  <rect x="560" y="320" width="60" height="50" rx="6" fill="#a78bfa" opacity="0.7"/>
+  <!-- Laptops -->
+  <rect x="130" y="195" width="50" height="35" rx="3" fill="#7c3aed" opacity="0.4"/>
+  <rect x="340" y="195" width="50" height="35" rx="3" fill="#7c3aed" opacity="0.4"/>
+  <rect x="0" y="370" width="800" height="80" fill="#ede9fe" opacity="0.5"/>
+  <text x="400" y="430" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#6d28d9" opacity="0.7">Espace de coworking</text>
+</svg>

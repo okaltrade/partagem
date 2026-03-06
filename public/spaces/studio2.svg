@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fefce8"/>
+      <stop offset="100%" style="stop-color:#fef9c3"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#g)"/>
+  <!-- Canapé -->
+  <rect x="100" y="240" width="260" height="80" rx="10" fill="#fde047" opacity="0.7"/>
+  <rect x="100" y="220" width="260" height="40" rx="8" fill="#facc15" opacity="0.8"/>
+  <rect x="100" y="220" width="40" height="100" rx="8" fill="#eab308" opacity="0.6"/>
+  <rect x="320" y="220" width="40" height="100" rx="8" fill="#eab308" opacity="0.6"/>
+  <!-- Fenêtre -->
+  <rect x="500" y="80" width="200" height="180" rx="4" fill="white" opacity="0.6"/>
+  <line x1="600" y1="80" x2="600" y2="260" stroke="#ca8a04" stroke-width="2" opacity="0.4"/>
+  <line x1="500" y1="170" x2="700" y2="170" stroke="#ca8a04" stroke-width="2" opacity="0.4"/>
+  <!-- Table basse -->
+  <rect x="190" y="320" width="140" height="50" rx="4" fill="#fbbf24" opacity="0.6"/>
+  <!-- Tapis -->
+  <ellipse cx="280" cy="355" rx="160" ry="40" fill="#fed7aa" opacity="0.4"/>
+  <rect x="0" y="380" width="800" height="70" fill="#fef3c7" opacity="0.6"/>
+  <text x="400" y="425" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#92400e" opacity="0.7">Studio — espace de vie</text>
+</svg>

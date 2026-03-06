@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="100%" style="stop-color:#e2e8f0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#g)"/>
+  <!-- Bureau -->
+  <rect x="150" y="220" width="500" height="120" rx="4" fill="#94a3b8" opacity="0.5"/>
+  <rect x="150" y="220" width="500" height="20" rx="4" fill="#64748b" opacity="0.6"/>
+  <!-- Écran -->
+  <rect x="300" y="100" width="200" height="120" rx="6" fill="#1e293b" opacity="0.8"/>
+  <rect x="310" y="110" width="180" height="100" rx="4" fill="#0ea5e9" opacity="0.4"/>
+  <rect x="380" y="220" width="40" height="20" fill="#334155" opacity="0.6"/>
+  <!-- Clavier -->
+  <rect x="280" y="250" width="180" height="30" rx="4" fill="#e2e8f0" opacity="0.8"/>
+  <!-- Chaise -->
+  <ellipse cx="400" cy="360" rx="70" ry="25" fill="#94a3b8" opacity="0.5"/>
+  <rect x="370" y="340" width="60" height="40" rx="4" fill="#64748b" opacity="0.5"/>
+  <rect x="0" y="370" width="800" height="80" fill="#f1f5f9" opacity="0.5"/>
+  <text x="400" y="430" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#334155" opacity="0.7">Bureau professionnel</text>
+</svg>

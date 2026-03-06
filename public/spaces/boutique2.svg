@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff7ed"/>
+      <stop offset="100%" style="stop-color:#ffedd5"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#g)"/>
+  <!-- Intérieur boutique -->
+  <!-- Étagères -->
+  <rect x="60" y="100" width="30" height="280" fill="#92400e" opacity="0.5"/>
+  <rect x="60" y="140" width="200" height="12" fill="#92400e" opacity="0.5"/>
+  <rect x="60" y="200" width="200" height="12" fill="#92400e" opacity="0.5"/>
+  <rect x="60" y="260" width="200" height="12" fill="#92400e" opacity="0.5"/>
+  <rect x="260" y="100" width="30" height="280" fill="#92400e" opacity="0.5"/>
+  <!-- Produits sur étagères -->
+  <rect x="80" y="110" width="30" height="30" rx="3" fill="#f97316" opacity="0.7"/>
+  <rect x="120" y="110" width="30" height="30" rx="3" fill="#fb923c" opacity="0.7"/>
+  <rect x="160" y="110" width="30" height="30" rx="3" fill="#fdba74" opacity="0.7"/>
+  <rect x="80" y="168" width="30" height="30" rx="3" fill="#ef4444" opacity="0.7"/>
+  <rect x="120" y="168" width="30" height="30" rx="3" fill="#fca5a5" opacity="0.7"/>
+  <rect x="80" y="228" width="30" height="30" rx="3" fill="#f59e0b" opacity="0.7"/>
+  <rect x="120" y="228" width="30" height="30" rx="3" fill="#fde68a" opacity="0.7"/>
+  <!-- Comptoir -->
+  <rect x="400" y="220" width="340" height="120" rx="4" fill="#c2410c" opacity="0.4"/>
+  <rect x="400" y="200" width="340" height="30" rx="4" fill="#ea580c" opacity="0.5"/>
+  <!-- Caisse -->
+  <rect x="560" y="150" width="120" height="80" rx="4" fill="#78716c" opacity="0.5"/>
+  <rect x="0" y="360" width="800" height="90" fill="#ffedd5" opacity="0.5"/>
+  <text x="400" y="425" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#c2410c" opacity="0.7">Boutique — intérieur</text>
+</svg>
