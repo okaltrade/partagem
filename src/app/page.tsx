@@ -42,9 +42,10 @@ export default function Home() {
           <div className="w-full flex-1 lg:max-w-lg">
             <div className="relative aspect-video overflow-hidden rounded-2xl shadow-lg">
               <Image
-                src="https://picsum.photos/id/493/1600/900"
-                alt="Espace partagé — bureau ou colocation"
+                src="/hero/hero.svg"
+                alt="Illustration d'un immeuble en colocation — espaces partagés en Afrique de l'Ouest"
                 fill
+                unoptimized
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 priority
