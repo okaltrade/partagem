@@ -115,7 +115,7 @@
   <!-- Plante déco -->
   <rect x="396" y="200" width="8" height="60" fill="#15803d" opacity="0.5"/>
   <circle cx="400" cy="192" r="26" fill="#16a34a" opacity="0.35"/>
-  <circle cx="388" cy="200" rx="16" cy="200" r="16" fill="#22c55e" opacity="0.3"/>
+  <circle cx="388" cy="200" r="16" fill="#22c55e" opacity="0.3"/>
   <circle cx="412" cy="202" r="14" fill="#4ade80" opacity="0.3"/>
   <rect x="390" y="255" width="20" height="15" rx="3" fill="#92400e" opacity="0.4"/>
   <!-- Tableau mural -->

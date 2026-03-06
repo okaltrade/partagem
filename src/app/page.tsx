@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import SpaceCard from '@/components/SpaceCard';
 import { espacesMock } from '@/lib/mock/spaces';
 
@@ -41,14 +40,11 @@ export default function Home() {
           {/* Image */}
           <div className="w-full flex-1 lg:max-w-lg">
             <div className="relative aspect-video overflow-hidden rounded-2xl shadow-lg">
-              <Image
+              {/* img natif : SVG servi directement depuis public/, fonctionne sur Vercel */}
+              <img
                 src="/hero/hero.svg"
                 alt="Illustration d'un immeuble en colocation — espaces partagés en Afrique de l'Ouest"
-                fill
-                unoptimized
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
+                className="absolute inset-0 h-full w-full object-cover"
               />
             </div>
           </div>
